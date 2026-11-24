@@ -1,22 +1,22 @@
-"""Builds every page of the GTA Shorts Studio website: python build.py (writes the .html files next to it).
+"""Builds every page of the Highlight Reel Studio website: python build.py (writes the .html files next to it).
 
-The log-in itself is a Cloudflare Worker (gta-shorts-studio-login, source in the Studio's repo, site-login/).
+The log-in itself is a Cloudflare Worker (highlight-reel-studio-login, source in the Studio's repo, site-login/).
 """
 import pathlib
 
 out = pathlib.Path(__file__).parent
-LOGIN = "https://gta-shorts-studio-login.tradeskis26.workers.dev/login"
+LOGIN = "https://highlight-reel-studio-login.tradeskis26.workers.dev/login"
 NAV = [("index.html", "Home"), ("features.html", "Features"), ("how-it-works.html", "How it works"),
        ("about.html", "About & contact"), ("privacy.html", "Privacy"), ("terms.html", "Terms")]
 EMAIL = "dknapptravels@gmail.com"
-UPDATED = "24 November 2026"
+UPDATED = "25 November 2026"
 
 
 def page(file, title, desc, body):
     nav = "".join(f'<a href="{f}"{" aria-current=page" if f == file else ""}>{n}</a>' for f, n in NAV)
     nav += f'<a class="login" href="{LOGIN}">Log in</a>'
     foot = "".join(f'<a href="{f}">{n}</a>' for f, n in NAV[1:]) + f'<a href="{LOGIN}">Log in</a>'
-    t = "GTA Shorts Studio" if file == "index.html" else f"{title} – GTA Shorts Studio"
+    t = "Highlight Reel Studio" if file == "index.html" else f"{title} – Highlight Reel Studio"
     html = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{t}</title>
@@ -27,22 +27,22 @@ def page(file, title, desc, body):
 <meta property="og:title" content="{t}"><meta property="og:description" content="{desc}"><meta property="og:image" content="assets/icon-512.png">
 <link rel="stylesheet" href="style.css">
 </head><body>
-<header class="site"><div class="wrap"><a class="brand" href="index.html"><img src="assets/icon-512.png" alt="">GTA Shorts Studio</a><nav class="main" aria-label="Main">{nav}</nav></div></header>
+<header class="site"><div class="wrap"><a class="brand" href="index.html"><img src="assets/icon-512.png" alt="">Highlight Reel Studio</a><nav class="main" aria-label="Main">{nav}</nav></div></header>
 <main>
 {body}
 </main>
-<footer class="site"><div class="wrap"><span>© 2026 GTA Shorts Studio · <a href="mailto:{EMAIL}">{EMAIL}</a></span><nav aria-label="Footer">{foot}</nav></div></footer>
+<footer class="site"><div class="wrap"><span>© 2026 Highlight Reel Studio · <a href="mailto:{EMAIL}">{EMAIL}</a><br><small>Independent tool, not affiliated with or endorsed by TikTok or any game publisher.</small></span><nav aria-label="Footer">{foot}</nav></div></footer>
 </body></html>
 """
     (out / file).write_text(html, encoding="utf-8")
 
 
-page("index.html", "Home", "GTA Shorts Studio turns long GTA gameplay streams into short vertical videos and publishes them to our own YouTube, Instagram and TikTok channels.", f"""
+page("index.html", "Home", "Highlight Reel Studio turns long gameplay streams into short vertical videos and publishes them to our own YouTube, Instagram and TikTok channels.", f"""
 <section class="hero"><div class="wrap">
-<div><h1>Long GTA streams in, finished Shorts out.</h1>
-<p class="lead">GTA Shorts Studio is the editing and publishing studio behind our GTA gameplay channels. It finds the best moments in long streams, cuts them into vertical videos with captions, and posts them to our own YouTube, Instagram and TikTok accounts, with a person approving every clip.</p>
+<div><h1>Long streams in, finished Shorts out.</h1>
+<p class="lead">Highlight Reel Studio is the editing and publishing studio behind our gaming clip channels. It finds the best moments in long streams, cuts them into vertical videos with captions, and posts them to our own YouTube, Instagram and TikTok accounts, with a person approving every clip.</p>
 <a class="btn" href="{LOGIN}">Log in with TikTok</a><a class="btn ghost" href="how-it-works.html">See how it works</a></div>
-<img class="mark" src="assets/icon-512.png" alt="GTA Shorts Studio icon">
+<img class="mark" src="assets/icon-512.png" alt="Highlight Reel Studio icon">
 </div></section>
 <section class="block"><div class="wrap">
 <h2>What the Studio does</h2>
@@ -62,7 +62,7 @@ page("index.html", "Home", "GTA Shorts Studio turns long GTA gameplay streams in
 </div></div></section>
 """)
 
-page("features.html", "Features", "Features of GTA Shorts Studio: moment finding, vertical editing, captions, review, scheduling and per-platform posting.", """
+page("features.html", "Features", "Features of Highlight Reel Studio: moment finding, vertical editing, captions, review, scheduling and per-platform posting.", """
 <section class="block"><div class="wrap">
 <h1 style="font-size:40px;margin:0 0 12px">Features</h1>
 <p class="sub">Everything the Studio does, from a long recording to a post on each platform.</p>
@@ -78,7 +78,7 @@ page("features.html", "Features", "Features of GTA Shorts Studio: moment finding
 <div class="grid">
 <div class="card"><h3>Streamer and game stacked</h3><p>The webcam is found automatically and placed above the gameplay; a clip without the streamer's face in frame is flagged.</p></div>
 <div class="card"><h3>Captions and hooks</h3><p>Word-timed captions from the speech, a short opening hook, and a highlight-first option that opens on the best second.</p></div>
-<div class="card"><h3>Safety checks</h3><p>Burned-in captions from the source are hidden, slurs are bleeped, nudity is detected and blurred, and clips that are not GTA are held back.</p></div>
+<div class="card"><h3>Safety checks</h3><p>Burned-in captions from the source are hidden, slurs are bleeped, nudity is detected and blurred, and clips from the wrong game are held back.</p></div>
 </div>
 </div></section>
 <section class="block"><div class="wrap">
@@ -91,7 +91,7 @@ page("features.html", "Features", "Features of GTA Shorts Studio: moment finding
 </div></section>
 """)
 
-page("how-it-works.html", "How it works", "How GTA Shorts Studio connects to TikTok, YouTube and Instagram and publishes a Short, step by step.", f"""
+page("how-it-works.html", "How it works", "How Highlight Reel Studio connects to TikTok, YouTube and Instagram and publishes a Short, step by step.", f"""
 <section class="block"><div class="wrap">
 <h1 style="font-size:40px;margin:0 0 12px">How it works</h1>
 <p class="sub">From a stream to a post, and exactly what the Studio does with each platform account.</p>
@@ -114,17 +114,18 @@ page("how-it-works.html", "How it works", "How GTA Shorts Studio connects to Tik
 </div></section>
 """)
 
-page("about.html", "About & contact", "About GTA Shorts Studio, who runs it, frequently asked questions and how to get in touch.", f"""
+page("about.html", "About & contact", "About Highlight Reel Studio, who runs it, frequently asked questions and how to get in touch.", f"""
 <div class="doc">
 <h1>About &amp; contact</h1>
-<p>GTA Shorts Studio is run by David Knapp. It is the tool behind our GTA gameplay channels, among them GTA 6 Secrets, GTA 6 NPC Moments, GTA 6 Lore, GTA 6 Chaos and GTA 6 Viral Moments, on YouTube, Instagram and TikTok.</p>
+<p>Highlight Reel Studio is run by David Knapp. It is the tool behind our own gaming clip channels on YouTube, Instagram and TikTok.</p>
+<p>Highlight Reel Studio is an independent tool. It is not affiliated with, sponsored or endorsed by TikTok, YouTube, Instagram, or any game publisher, including Rockstar Games and Take-Two Interactive. Game names and footage shown in our videos belong to their owners.</p>
 <p>The Studio is used by our team to run our channels. Team members log in with the TikTok account of the channel they manage.</p>
 <h2>Contact</h2>
 <p>Email <a href="mailto:{EMAIL}">{EMAIL}</a>. We answer within two working days.</p>
 <p><strong>Creators:</strong> if a clip of your stream is on one of our channels and you would like it credited differently or removed, email us with the link and we will act on it promptly.</p>
 <h2>Questions</h2>
 <dl class="faq">
-<dt>Where does the footage come from?</dt><dd>Our own gameplay, creators who run open clipping programs or gave us permission, and Rockstar Games' official material. Every clip credits its creator.</dd>
+<dt>Where does the footage come from?</dt><dd>Our own gameplay, creators who run open clipping programs or gave us permission, and publishers' official trailers and artwork. Every clip credits its creator.</dd>
 <dt>Does anything post without a person checking it?</dt><dd>No. Every Short is reviewed before it is booked to post.</dd>
 <dt>What does the Studio do with TikTok, YouTube or Instagram data?</dt><dd>See the <a href="privacy.html">Privacy Policy</a> for exactly what is read, stored and for how long.</dd>
 <dt>How do I log in or out?</dt><dd>Use <a href="{LOGIN}">Log in</a> at the top of every page. Log out ends your session; Disconnect TikTok on the account page revokes the Studio's access to your TikTok account.</dd>
@@ -132,14 +133,14 @@ page("about.html", "About & contact", "About GTA Shorts Studio, who runs it, fre
 </div>
 """)
 
-page("privacy.html", "Privacy Policy", "How GTA Shorts Studio collects, uses, stores, shares and deletes data, including data from TikTok, YouTube and Instagram.", f"""
+page("privacy.html", "Privacy Policy", "How Highlight Reel Studio collects, uses, stores, shares and deletes data, including data from TikTok, YouTube and Instagram.", f"""
 <div class="doc">
 <h1>Privacy Policy</h1>
 <p class="date">Effective and last updated: {UPDATED}</p>
-<p>This Privacy Policy explains how GTA Shorts Studio ("the Studio", "we", "us") collects, uses, stores, shares and deletes information when you visit this website, log in with TikTok, or use the Studio to connect a TikTok, YouTube or Instagram account. By using the website or the Studio you agree to this policy. If you do not agree, please do not use them.</p>
+<p>This Privacy Policy explains how Highlight Reel Studio ("the Studio", "we", "us") collects, uses, stores, shares and deletes information when you visit this website, log in with TikTok, or use the Studio to connect a TikTok, YouTube or Instagram account. By using the website or the Studio you agree to this policy. If you do not agree, please do not use them.</p>
 
 <h2>1. Who we are</h2>
-<p>GTA Shorts Studio is operated by David Knapp, an individual based in the United States, who is the data controller for the information described here. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+<p>Highlight Reel Studio is operated by David Knapp, an individual based in the United States, who is the data controller for the information described here. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
 
 <h2>2. Information we collect</h2>
 <p><strong>a. When you log in with TikTok.</strong> With your permission, TikTok gives us, under the scopes you approve:</p>
@@ -212,11 +213,11 @@ page("privacy.html", "Privacy Policy", "How GTA Shorts Studio collects, uses, st
 </div>
 """)
 
-page("terms.html", "Terms of Service", "The terms that apply to the GTA Shorts Studio website, its TikTok log-in and the Studio.", f"""
+page("terms.html", "Terms of Service", "The terms that apply to the Highlight Reel Studio website, its TikTok log-in and the Studio.", f"""
 <div class="doc">
 <h1>Terms of Service</h1>
 <p class="date">Effective and last updated: {UPDATED}</p>
-<p>These Terms of Service ("Terms") are an agreement between you and David Knapp, operator of GTA Shorts Studio ("we", "us"), and govern your use of this website, its TikTok log-in, and the GTA Shorts Studio software (together, "the Service"). By using the Service you accept these Terms and our <a href="privacy.html">Privacy Policy</a>. If you do not accept them, do not use the Service.</p>
+<p>These Terms of Service ("Terms") are an agreement between you and David Knapp, operator of Highlight Reel Studio ("we", "us"), and govern your use of this website, its TikTok log-in, and the Highlight Reel Studio software (together, "the Service"). By using the Service you accept these Terms and our <a href="privacy.html">Privacy Policy</a>. If you do not accept them, do not use the Service.</p>
 
 <h2>1. Eligibility</h2>
 <p>You must be at least 18 years old, or the age of majority where you live, and able to form a binding contract. You must also meet the minimum age and other requirements of every platform you connect. If you use the Service for an organisation, you confirm you may bind it to these Terms.</p>
