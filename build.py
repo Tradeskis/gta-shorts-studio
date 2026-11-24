@@ -96,7 +96,7 @@ page("how-it-works.html", "How it works", "How GTA Shorts Studio connects to Tik
 <h1 style="font-size:40px;margin:0 0 12px">How it works</h1>
 <p class="sub">From a stream to a post, and exactly what the Studio does with each platform account.</p>
 <ol class="steps">
-<li><span class="num">1</span><div><h3>Log in with TikTok</h3><p>Press <a href="{LOGIN}">Log in</a> (or <strong>Connect with TikTok</strong> on a channel's page in the Studio). TikTok's own sign-in page opens; you sign in to the channel's account and approve the permissions. The Studio then shows which account is connected. <strong>Log out</strong> revokes the access at TikTok.</p></div></li>
+<li><span class="num">1</span><div><h3>Log in with TikTok</h3><p>Press <a href="{LOGIN}">Log in</a> (or <strong>Connect with TikTok</strong> on a channel's page in the Studio). TikTok's own sign-in page opens; you sign in to the channel's account and approve the permissions. The Studio then shows which account is connected. <strong>Log out</strong> ends the session; <strong>Disconnect TikTok</strong> revokes the access at TikTok.</p></div></li>
 <li><span class="num">2</span><div><h3>Clip and review</h3><p>The Studio clips a stream into candidate Shorts. Each one waits in Review, where a person watches it and approves or rejects it.</p></div></li>
 <li><span class="num">3</span><div><h3>Choose how it posts</h3><p>Before a TikTok post the Studio reads the account's current settings and shows them: the account name, who can see the post (chosen by the user, never pre-selected), whether comments, duets and stitches are allowed (off until ticked), and the commercial content disclosure for branded or paid content.</p></div></li>
 <li><span class="num">4</span><div><h3>Post now or on schedule</h3><p>The Short is posted straight away or at the channel's next posting slot. The post's link appears on the Posting dashboard as soon as the platform confirms it.</p></div></li>
@@ -110,7 +110,7 @@ page("how-it-works.html", "How it works", "How GTA Shorts Studio connects to Tik
 <div class="card"><h3><code>video.upload</code> and <code>video.publish</code></h3><p>Sends an approved Short to that account, as a draft or as a direct post with the settings chosen in step 3.</p></div>
 <div class="card"><h3><code>video.list</code></h3><p>Reads the view, like, comment and share counts of the account's own videos for the Posting dashboard.</p></div>
 </div>
-<p style="margin-top:20px;color:var(--ink-2)">Access can be removed at any time with <strong>Log out</strong> or <strong>Disconnect</strong>, or in TikTok under Settings and privacy › Security › Apps and services.</p>
+<p style="margin-top:20px;color:var(--ink-2)">Access can be removed at any time with <strong>Disconnect TikTok</strong> (website) or <strong>Disconnect</strong> (Studio), or in TikTok under Settings and privacy › Security › Apps and services.</p>
 </div></section>
 """)
 
@@ -127,7 +127,7 @@ page("about.html", "About & contact", "About GTA Shorts Studio, who runs it, fre
 <dt>Where does the footage come from?</dt><dd>Our own gameplay, creators who run open clipping programs or gave us permission, and Rockstar Games' official material. Every clip credits its creator.</dd>
 <dt>Does anything post without a person checking it?</dt><dd>No. Every Short is reviewed before it is booked to post.</dd>
 <dt>What does the Studio do with TikTok, YouTube or Instagram data?</dt><dd>See the <a href="privacy.html">Privacy Policy</a> for exactly what is read, stored and for how long.</dd>
-<dt>How do I log in or out?</dt><dd>Use <a href="{LOGIN}">Log in</a> at the top of every page. Logging out revokes the Studio's access to your TikTok account.</dd>
+<dt>How do I log in or out?</dt><dd>Use <a href="{LOGIN}">Log in</a> at the top of every page. Log out ends your session; Disconnect TikTok on the account page revokes the Studio's access to your TikTok account.</dd>
 </dl>
 </div>
 """)
@@ -189,7 +189,7 @@ page("privacy.html", "Privacy Policy", "How GTA Shorts Studio collects, uses, st
 
 <h2>8. Your choices and rights</h2>
 <ul>
-<li><strong>Revoke access</strong> at any time: Log out on this website, Disconnect in the Studio, or in TikTok under Settings and privacy › Security › Apps and services (Google: myaccount.google.com/permissions; Meta: Settings › Apps and websites).</li>
+<li><strong>Revoke access</strong> at any time: Disconnect TikTok on this website's account page, Disconnect in the Studio, or in TikTok under Settings and privacy › Security › Apps and services (Google: myaccount.google.com/permissions; Meta: Settings › Apps and websites).</li>
 <li><strong>Access, correction, deletion and portability</strong>: email <a href="mailto:{EMAIL}">{EMAIL}</a> and we will respond within 30 days (45 days where California law allows). We may need to verify that the request comes from the account holder.</li>
 <li><strong>California residents</strong> (CCPA/CPRA): you have the right to know what personal information we collect, use and disclose, to delete it, to correct it, and not to be discriminated against for exercising these rights. We do not sell or share personal information, and we do not use or disclose sensitive personal information.</li>
 <li><strong>EEA/UK residents</strong> (GDPR): you also have the right to object to or restrict processing, and to complain to your local data protection authority.</li>
