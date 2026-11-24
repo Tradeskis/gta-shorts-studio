@@ -42,3 +42,6 @@ footer.site .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 footer.site nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
 footer.site a{color:var(--ink-2);text-decoration:none}
 @media (max-width:760px){.hero .wrap{grid-template-columns:1fr}.hero img.mark{max-width:160px;order:-1;justify-self:start}.grid{grid-template-columns:1fr}nav.main{margin-left:0;width:100%}.btn.ghost{margin:8px 0 0}}
+
+nav.main a.login{background:#000;color:#fff;font-weight:600}
+nav.main a.login:hover{background:#222;color:#fff}
